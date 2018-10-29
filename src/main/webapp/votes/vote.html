@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Votes</title>
+    <link href="/public/bootstrap.css" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+    <h2>Welcome to Animals Vote!!!</h2>
+    <div class="col-md-6">
+        <form id="votes" method="post" action="votes">
+            <input type="radio" name="votes" value="Cat">Cat
+            <br>
+            <input type="radio" name="votes" value="Dog">Dog
+            <br>
+            <input  type="radio" name="votes" value="Pig">Pig
+            <br>
+            <input type="radio" name="votes" value="Monkey">Monkey
+            <button class="btn btn-primary btn-block" id="submit" style="width: 60px" type="submit">vote</button>
+        </form>
+        <a href="list.html">go to home page</a>
+    </div>
+</div>
+<script src="/public/jquery.min.js"></script>
+<script>
+    $("#votes").submit(function () {
+        if ($(':radio[name="votes"]:checked').length > 0) {
+            var name = $(':radio[name="votes"]:checked').val()
+            $.ajax({
+                url: "/votes",
+                type: "post",
+                data: {name: name, votes: 1},
+                success: function (data) {
+                }
+            })
+            return false;
+        }else {
+            alert('you can not vote nothing');
+            return false
+        }
+    })
+</script>
+</body>
+</html>

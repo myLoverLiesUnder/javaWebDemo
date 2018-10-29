@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Votes</title>
+    <link href="/public/bootstrap.css" rel="stylesheet">
+    <link href="/public/custom.css" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+    <h2>Welcome to Animals Vote!!!</h2>
+    <div class="col-md-6">
+        <ul id="list"></ul>
+        <a href="vote.html">go to vote page</a>
+    </div>
+</div>
+<script src="/public/jquery.min.js"></script>
+<script>
+    $.ajax({
+        url: "/votes/s",
+        type: "get",
+        success: function (data) {
+            var lis = [];
+            var dom = '';
+            for (var i = 0; i < data.length; i++) {
+                dom = $('<li></li>');
+                $('<li>' + '<p style="float: left">' + data[i].name + '</p>' + '<p style="text-align: right">' + data[i].votes + '</p>' + '</li>').appendTo(dom);
+                lis.push(dom);
+            }
+            for (var j = 0; j < lis.length; j++) {
+                $(lis[j]).appendTo($('#list'));
+            }
+        }
+    })
+</script>
+</body>
+</html>
