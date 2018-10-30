@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Votes</title>
-    <link href="/public/bootstrap.css" rel="stylesheet">
-    <link href="/public/custom.css" rel="stylesheet">
+    <link href="../public/bootstrap.css" rel="stylesheet">
+    <link href="../public/custom.css" rel="stylesheet">
 </head>
 <body>
 <div class="container">
@@ -14,10 +14,10 @@
         <a href="vote.html">go to vote page</a>
     </div>
 </div>
-<script src="/public/jquery.min.js"></script>
+<script src="../public/jquery.min.js"></script>
 <script>
     $.ajax({
-        url: "/votes/s",
+        url: "/javaWebDemo/votes/s",
         type: "get",
         success: function (data) {
             var lis = [];

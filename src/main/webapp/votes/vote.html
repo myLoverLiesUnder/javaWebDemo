@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Votes</title>
-    <link href="/public/bootstrap.css" rel="stylesheet">
+    <link href="../public/bootstrap.css" rel="stylesheet">
 </head>
 <body>
 <div class="container">
@@ -22,18 +22,18 @@
         <a href="list.html">go to home page</a>
     </div>
 </div>
-<script src="/public/jquery.min.js"></script>
+<script src="../public/jquery.min.js"></script>
 <script>
     $("#votes").submit(function () {
         if ($(':radio[name="votes"]:checked').length > 0) {
             var name = $(':radio[name="votes"]:checked').val()
             $.ajax({
-                url: "/votes",
+                url: "/javaWebDemo/votes",
                 type: "post",
                 data: {name: name, votes: 1},
                 success: function (data) {
                 }
-            })
+            });
             return false;
         }else {
             alert('you can not vote nothing');
